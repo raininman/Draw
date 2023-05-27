@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MainActivity"
+    android:id="@+id/main">
+
+    <RelativeLayout
+        android:id="@+id/action"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/background_card"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_arrow"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:background="@null"
+            android:src="@drawable/ic_save" />
+
+        <ImageButton
+            android:id="@+id/btn_pencil"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/btn_arrow"
+            android:background="@null"
+            android:src="@drawable/ic_unselected_pencil" />
+
+        <ImageButton
+            android:id="@+id/btn_rectangle"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toEndOf="@+id/btn_pencil"
+            android:background="@null"
+            android:src="@drawable/ic_unselected_rectangle" />
+
+        <ImageButton
+            android:id="@+id/btn_ellipse"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_rectangle"
+            android:background="@null"
+            android:src="@drawable/ic_unselected_circle" />
+
+        <ImageButton
+            android:id="@+id/btn_pallete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_ellipse"
+            android:background="@null"
+            android:src="@drawable/ic_unselected_palette" />
+
+        <ImageButton
+            android:id="@+id/btn_slider"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_pallete"
+            android:background="@null"
+            android:src="@drawable/ac_height" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/color_palate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_card"
+        android:padding="4dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/action"
+        app:layout_constraintBottom_toTopOf="@+id/action">
+
+        <ImageButton
+            android:id="@+id/btn_blue"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/color_palette_google_blue" />
+
+        <ImageButton
+            android:id="@+id/btn_red"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_blue"
+            android:background="@drawable/color_palette_google_red" />
+
+        <ImageButton
+            android:id="@+id/btn_yellow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_red"
+            android:background="@drawable/color_palette_google_yellow" />
+
+        <ImageButton
+            android:id="@+id/btn_green"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_yellow"
+            android:background="@drawable/color_palette_google_green" />
+
+        <ImageButton
+            android:id="@+id/btn_black"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="10dp"
+            android:layout_toEndOf="@+id/btn_green"
+            android:background="@drawable/color_palette_black" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/stroke_width"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/background_card"
+        android:padding="4dp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/action"
+        app:layout_constraintBottom_toTopOf="@+id/action">
+
+        <com.google.android.material.slider.RangeSlider
+            android:id="@+id/range_slider"
+            android:valueFrom="0.0"
+            android:valueTo="100.0"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/color_palate">
+
+        <com.example.draw.canvas.DrawPencil
+            android:id="@+id/draw_pencil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible" />
+
+        <com.example.draw.canvas.DrawRectangle
+            android:id="@+id/draw_rectangle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <com.example.draw.canvas.DrawEllipse
+            android:id="@+id/draw_ellipse"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
